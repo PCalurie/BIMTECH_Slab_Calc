@@ -29,7 +29,7 @@ def generate_slab_pdf(name_client, beam_summary, total_num_beams, total_beam_len
     elements = []
 
     # Logo (same logic)
-    logo_path = "C:/Users/a/Documents/Slab_Reports/bimtech-logo.jpeg"  # Keep your same logo file in same directory
+    logo_path = os.path.join(os.path.dirname(__file__), "bimtech-logo.jpeg")  # Keep your same logo file in same directory
     if os.path.exists(logo_path):
         logo = Image(logo_path, width=500, height=70)
         elements.append(logo)
@@ -180,7 +180,7 @@ def calculate_slabs_summary(client_name, room_data):
 # ============================
 # STREAMLIT INTERFACE
 # ============================
-letterhead = PILImage.open("bimtech-logo.jpeg")
+letterhead = PILImage.open(os.path.join(os.path.dirname(__file__), "bimtech-logo.jpeg"))
 st.image(letterhead, width="stretch")
 
 st.markdown(
